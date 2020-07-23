@@ -10,6 +10,9 @@ public class WebHookRequest {
     private String before;
     private String after;
 
+    public WebHookRequest() {
+    }
+
     public WebHookRequest(String ref, String before, String after) {
         this.ref = ref;
         this.before = before;
