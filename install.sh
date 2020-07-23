@@ -1,39 +1,28 @@
 #!/bin/bash
 
+### 开始安装 nginx
 
-# https://api.github.com/repos/GuoJiafeng/ProblemRepository/contents
+yum install nginx
 
-wget -c "http://files.git.oschina.net/group1/M00/07/63/PaAvDFy5ceKASQZAAA5O-Gs--YQ242.rpm?token=cd490e7f57a2dbea98ea04dc4a884499&ts=1555657274&attname=nginx-1.12.2-1.el6.ngx.x86_64.rpm&disposition=attachment"  -O nginx-1.12.2-1.el6.ngx.x86_64.rpm
-
-
-rpm -ivh nginx-1.12.2-1.el6.ngx.x86_64.rpm
+### 启动 nginx
 
 nginx
 
+### 删除 html 文件
 rm -rf /usr/share/nginx/html/*
 
+### 安装 git
 
 yum remove git*
 
-wget -c "http://files.git.oschina.net/group1/M00/07/63/PaAvDFy5cemAdOGyAH6LPKZEAXw4781.gz?token=9d65cf0f4febc5979b3603b09c3052d6&ts=1555657269&attname=git-2.21.0.tar.gz&disposition=attachment" -O git-2.21.0.tar.gz
+yum install git
+
+####  开始克隆仓库
+
+git clone git@github.com:GuoJiafeng/ProblemRepository.git
 
 
-tar -zxvf git-2.21.0.tar.gz
+### 开始运行
 
-cd git-2.21.0
-
-yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-Embed
-
-make prefix=/usr/local/git install
-
-/usr/local/git/bin/git --version
-
-
-
-
-
-
-
-
-
+sh run.sh
 
