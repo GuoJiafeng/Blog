@@ -116,7 +116,7 @@ public class GenerateResource {
 
             file.getName();
 
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("/usr/share/nginx/html/" + file.getName().substring(0, file.getName().length() - 3) + ".html")));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("/Users/v_guojiafeng/gjf/html/" + file.getName().substring(0, file.getName().length() - 3) + ".html")));
 
             bufferedWriter.write(finaltext);
 
@@ -135,7 +135,7 @@ public class GenerateResource {
     public static void copyImage(String imagepath) {
         File file = new File(imagepath);
         try {
-            FileUtils.copyFile(file, new File("/usr/local/nginx/html/assets/" + file.getName()));
+            FileUtils.copyFile(file, new File("/Users/v_guojiafeng/gjf/html/assets/" + file.getName()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -147,7 +147,7 @@ public class GenerateResource {
 
         if (file.getName().endsWith(".md")) {
 
-            File file1 = new File("/usr/local/nginx/html/" + file.getName().split(".")[0] + ".html");
+            File file1 = new File("/Users/v_guojiafeng/gjf/html/" + file.getName().split(".")[0] + ".html");
             file1.deleteOnExit();
         }
 
@@ -165,7 +165,7 @@ public class GenerateResource {
 
                     List<Article> articles = new ArrayList<>();
 
-                    File filelist = new File("/home/blog/ProblemRepository");
+                    File filelist = new File("/Users/v_guojiafeng/gjf/ProblemRepository-master");
 
 
                     for (File file : filelist.listFiles()) {
@@ -267,7 +267,7 @@ public class GenerateResource {
                     String finaltext = midtext + endtext;
 
 
-                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("/usr/share/nginx/html/index.html")));
+                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("/Users/v_guojiafeng/gjf/html/index.html")));
 
                     bufferedWriter.write(finaltext);
                     bufferedWriter.flush();
@@ -286,7 +286,7 @@ public class GenerateResource {
     public static void copyCSSResgource() {
 
         try {
-            File file = new File("/usr/share/nginx/html/app/");
+            File file = new File("/Users/v_guojiafeng/gjf/html/app/");
 
 
             boolean exists = file.exists();
