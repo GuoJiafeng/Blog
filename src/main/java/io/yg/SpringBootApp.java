@@ -13,11 +13,8 @@ import java.io.IOException;
  */
 
 @SpringBootApplication
-@EnableScheduling
-@ImportResource(locations = {"classpath:spring-quartz.xml"})
 public class SpringBootApp {
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         SpringApplication.run(SpringBootApp.class, args);
 
     }
