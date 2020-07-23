@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/v1")
 public class WebHookController {
 
-    @PostMapping("/getNotice")
+    @RequestMapping("/getNotice")
     public @ResponseBody
-    WebHookRequest getNotice(@RequestParam WebHookRequest webHookRequest) {
+    WebHookRequest getNotice(WebHookRequest webHookRequest) {
 
         System.out.println(webHookRequest.toString());
         return webHookRequest;
