@@ -18,7 +18,6 @@ io:
     gitpath: git@github.com:GuoJiafeng/ProblemRepository.git
     nginxpath: /usr/share/nginx/html/
     giturl: /root/ProblemRepository/
-    imagepath: /root/ProblemRepository/assets
 
 
 

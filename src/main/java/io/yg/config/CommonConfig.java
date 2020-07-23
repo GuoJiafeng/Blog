@@ -16,5 +16,4 @@ public class CommonConfig {
     private String gitpath;
     private String nginxpath;
     private String giturl;
-    private String imagepath;
 }
