@@ -5,6 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,13 +22,11 @@ import java.util.Map;
 public class WebHookController {
 
     @PostMapping("/getNotice")
-    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, HttpRequest httpRequest) {
+    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, @RequestHeader HttpRequest httpRequest) {
 
-        HttpHeaders headers = httpRequest.getHeaders();
-        for (Map.Entry<String, List<String>> listEntry : headers.entrySet()) {
-            for (String s : listEntry.getValue()) {
-                System.out.println(listEntry.getKey()+":"+s);
-            }
+        List<String> list = httpRequest.getHeaders().get("X-Hub-Signature");
+        for (String s : list) {
+            System.out.println( "密码是："+s);
         }
         System.out.println("目前收到了" + webHookRequest.toString());
         return webHookRequest;
