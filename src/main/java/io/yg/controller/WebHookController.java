@@ -35,13 +35,21 @@ public class WebHookController {
     private CommonConfig commonConfig;
 
     @PostMapping("/getNotice")
-    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, @RequestHeader HttpHeaders httpHeaders) {
+    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, @RequestHeader HttpHeaders httpHeaders)  throws Exception{
 
         System.out.println("检验为：" + request.getHeader("X-Hub-Signature"));
 
         System.out.println("目前收到了" + webHookRequest.toString());
 
+
+        ShellUtil.exceScript("rm -rf " + commonConfig.getNginxpath() + "*", ShellUtil.LINUX);
+
+
         ShellUtil.exceScript("git  -C " + commonConfig.getGitpath() + "  pull", ShellUtil.LINUX);
+
+
+        Thread.sleep(10000);
+
 
         generateResourceService.copyCSSResource();
 
