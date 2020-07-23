@@ -1,6 +1,7 @@
 server:
   port: 1211
-  context-path: /Blog
+  servlet:
+    context-path: /Blog
 spring:
   mvc:
     view:
