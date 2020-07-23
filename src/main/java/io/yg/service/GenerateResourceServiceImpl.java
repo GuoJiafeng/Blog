@@ -240,7 +240,7 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
     @Override
     public void copyImage() {
-        File file = new File(commonConfig.getImagepath());
+        File file = new File(commonConfig.getGitpath());
         try {
             FileUtils.copyFile(file, new File(commonConfig.getNginxpath() + "/assets/" + file.getName()));
         } catch (IOException e) {
