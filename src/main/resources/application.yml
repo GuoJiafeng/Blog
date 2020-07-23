@@ -15,9 +15,9 @@ spring:
 
 io:
   gjf:
-    gitpath: git@github.com:GuoJiafeng/ProblemRepository.git
+    gitpath: /root/ProblemRepository/
     nginxpath: /usr/share/nginx/html/
-    giturl: /root/ProblemRepository/
+    giturl: git@github.com:GuoJiafeng/ProblemRepository.git
 
 
 
