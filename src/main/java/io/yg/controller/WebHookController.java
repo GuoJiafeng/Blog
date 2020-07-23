@@ -1,6 +1,7 @@
 package io.yg.controller;
 
 import io.yg.generate.entity.WebHookRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -20,14 +22,14 @@ import java.util.Map;
 @RestController
 @RequestMapping("/v1")
 public class WebHookController {
+    @Autowired
+    private HttpServletRequest request;
 
     @PostMapping("/getNotice")
-    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, @RequestHeader HttpRequest httpRequest) {
+    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, @RequestHeader HttpHeaders httpHeaders) {
 
-        List<String> list = httpRequest.getHeaders().get("X-Hub-Signature");
-        for (String s : list) {
-            System.out.println( "密码是："+s);
-        }
+        System.out.println("检验为："+request.getHeader("X-Hub-Signature"));
+
         System.out.println("目前收到了" + webHookRequest.toString());
         return webHookRequest;
     }
