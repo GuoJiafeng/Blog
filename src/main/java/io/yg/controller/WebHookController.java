@@ -45,7 +45,7 @@ public class WebHookController {
         ShellUtil.exceScript("rm -rf " + commonConfig.getNginxpath() + "*", ShellUtil.LINUX);
 
 
-        ShellUtil.exceScript("git  -C " + commonConfig.getGitpath() + "  pull", ShellUtil.LINUX);
+        ShellUtil.exceScript("git pull " + commonConfig.getGitpath() + "  master ", ShellUtil.LINUX);
 
 
         Thread.sleep(10000);
