@@ -1,6 +1,5 @@
 package io.yg.generate.entity;
 
-import java.util.Comparator;
 
 /**
  * Create by GuoJF on 2019/4/19
