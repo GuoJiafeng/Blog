@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class WebHookController {
 
     @PostMapping("/getNotice")
-    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest) {
+    public @ResponseBody  WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest) {
         System.out.println("目前收到了" + webHookRequest.toString());
         return webHookRequest;
     }
