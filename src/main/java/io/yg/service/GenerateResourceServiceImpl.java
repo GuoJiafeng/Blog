@@ -222,14 +222,14 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
             if (!exists) {
 
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/css/app.css"), new File("/usr/share/nginx/html/css/app.css"));
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/css/markdown.css"), new File("/usr/share/nginx/html/css/markdown.css"));
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/FontAwesome.otf"), new File("/usr/share/nginx/html/fonts/FontAwesome.otf"));
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.eot"), new File("/usr/share/nginx/html/fonts/fontawesome-webfont.eot"));
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.svg"), new File("/usr/share/nginx/html/fonts/fontawesome-webfont.svg"));
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.ttf"), new File("/usr/share/nginx/html/fonts/fontawesome-webfont.ttf"));
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.woff"), new File("/usr/share/nginx/html/fonts/fontawesome-webfont.woff"));
-                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.woff2"), new File("/usr/share/nginx/html/fonts/fontawesome-webfont.woff2"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/css/app.css"), new File(commonConfig.getNginxpath() + "/css/app.css"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/css/markdown.css"), new File(commonConfig.getNginxpath() + "/css/markdown.css"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/FontAwesome.otf"), new File(commonConfig.getNginxpath() + "/fonts/FontAwesome.otf"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.eot"), new File(commonConfig.getNginxpath() + "/fonts/fontawesome-webfont.eot"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.svg"), new File(commonConfig.getNginxpath() + "/fonts/fontawesome-webfont.svg"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.ttf"), new File(commonConfig.getNginxpath() + "/fonts/fontawesome-webfont.ttf"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.woff"), new File(commonConfig.getNginxpath() + "/fonts/fontawesome-webfont.woff"));
+                FileUtils.copyInputStreamToFile(GenerateResource.class.getResourceAsStream("/blog/fonts/fontawesome-webfont.woff2"), new File(commonConfig.getNginxpath() + "/fonts/fontawesome-webfont.woff2"));
             }
 
         } catch (Exception e) {
@@ -240,9 +240,9 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
     @Override
     public void copyImage() {
-        File file = new File(commonConfig.getGitpath());
+        File file = new File(commonConfig.getGitpath() + "/assets");
         try {
-            FileUtils.copyFile(file, new File(commonConfig.getNginxpath() + "/assets/" + file.getName()));
+            FileUtils.copyDirectory(file, new File(commonConfig.getNginxpath() + "/assets"));
         } catch (IOException e) {
             e.printStackTrace();
         }

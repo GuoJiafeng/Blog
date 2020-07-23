@@ -3,6 +3,7 @@ package io.yg.controller;
 import io.yg.config.CommonConfig;
 import io.yg.generate.entity.WebHookRequest;
 import io.yg.service.GenerateResourceService;
+import io.yg.util.ShellUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
@@ -40,6 +41,8 @@ public class WebHookController {
 
         System.out.println("目前收到了" + webHookRequest.toString());
 
+        ShellUtil.exceScript("git  -C " + commonConfig.getGitpath() + "  pull", ShellUtil.LINUX);
+
         generateResourceService.copyCSSResource();
 
         generateResourceService.generateIndex();
@@ -52,7 +55,7 @@ public class WebHookController {
 
                 if (file1.getName().endsWith(".md") && !file1.getName().equals("README.md")) {
                     System.out.println(file1.getName());
-                    generateResourceService.generateHtml(file);
+                    generateResourceService.generateHtml(file1);
                 }
             }
         }
