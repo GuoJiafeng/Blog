@@ -19,7 +19,7 @@ public class WebHookController {
 
     @PostMapping("/getNotice")
     public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest) {
-        System.out.println("目前收到了");
+        System.out.println("目前收到了" + webHookRequest.toString());
         return webHookRequest;
     }
 }
