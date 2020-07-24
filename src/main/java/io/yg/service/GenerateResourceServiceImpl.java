@@ -241,10 +241,15 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
     @Override
     public void copyImage() {
         File file = new File(commonConfig.getGitpath() + "/assets");
-        try {
-            FileUtils.copyDirectory(file, new File(commonConfig.getNginxpath() + "/assets"));
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        if (file.exists()) {
+            try {
+                FileUtils.copyDirectory(file, new File(commonConfig.getNginxpath() + "/assets"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            System.out.println("没有图片，无需拷贝。");
         }
     }
 }
