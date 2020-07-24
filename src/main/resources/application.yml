@@ -17,7 +17,7 @@ io:
   gjf:
     gitpath: /root/Think/
     nginxpath: /usr/share/nginx/html/
-    giturl: git@github.com:GuoJiafeng/Think.git
+    giturl: https://github.com/GuoJiafeng/Think.git
 
 
 

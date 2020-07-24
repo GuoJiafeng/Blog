@@ -261,7 +261,7 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
         if (!gitDir.exists()) {
             System.out.println("没有找到 git 仓库,开始克隆....");
 
-            String gitcloneMsg = ShellUtil.exceScript("git clone " + commonConfig.getGiturl() + " " + "/root", ShellUtil.LINUX);
+            String gitcloneMsg = ShellUtil.exceScript("git clone " + commonConfig.getGiturl() + " " + commonConfig.getGitpath(), ShellUtil.LINUX);
             System.out.println("克隆信息：" + gitcloneMsg);
         }
 
