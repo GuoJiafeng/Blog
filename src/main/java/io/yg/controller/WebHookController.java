@@ -31,44 +31,15 @@ public class WebHookController {
     @Autowired
     private GenerateResourceService generateResourceService;
 
-    @Autowired
-    private CommonConfig commonConfig;
 
     @PostMapping("/getNotice")
-    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, @RequestHeader HttpHeaders httpHeaders)  throws Exception{
+    public WebHookRequest getNotice(@RequestBody WebHookRequest webHookRequest, @RequestHeader HttpHeaders httpHeaders) throws Exception {
 
         System.out.println("检验为：" + request.getHeader("X-Hub-Signature"));
 
         System.out.println("目前收到了" + webHookRequest.toString());
 
-
-        ShellUtil.exceScript("rm -rf " + commonConfig.getNginxpath() + "*", ShellUtil.LINUX);
-
-
-        String gitMsg = ShellUtil.exceScript("git pull " + commonConfig.getGitpath() + "  master ", ShellUtil.LINUX);
-
-        System.out.println("git 输出信息："+gitMsg);
-
-
-        //Thread.sleep(10000);
-
-
-        generateResourceService.copyCSSResource();
-
-        generateResourceService.generateIndex();
-        generateResourceService.copyImage();
-
-        File file = new File(commonConfig.getGitpath());
-        File[] listFiles = file.listFiles();
-        for (File file1 : listFiles) {
-            if (file1.isFile()) {
-
-                if (file1.getName().endsWith(".md") && !file1.getName().equals("README.md")) {
-                    System.out.println(file1.getName());
-                    generateResourceService.generateHtml(file1);
-                }
-            }
-        }
+        generateResourceService.execGenerate();
 
         return webHookRequest;
     }

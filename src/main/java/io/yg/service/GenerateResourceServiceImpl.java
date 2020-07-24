@@ -4,6 +4,7 @@ import io.yg.config.CommonConfig;
 import io.yg.generate.entity.Article;
 import io.yg.util.MarkDown2HtmlWrapper;
 import io.yg.util.MarkdownEntity;
+import io.yg.util.ShellUtil;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -153,7 +154,7 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
                 tmp += tmp01 + "/" + article.getName().split("\\.")[0] + ".html" + tmp02 + article.getName().split("\\.")[0] + tmp03;
 
-               // System.out.println(article.getName());
+                // System.out.println(article.getName());
 
             }
 
@@ -248,8 +249,49 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("没有图片，无需拷贝。");
+        }
+    }
+
+    @Override
+    public void execGenerate() {
+        File gitDir = new File(commonConfig.getGitpath());
+
+        if (!gitDir.exists()) {
+            System.out.println("没有找到 git 仓库,开始克隆....");
+
+            String gitcloneMsg = ShellUtil.exceScript("git clone " + commonConfig.getGiturl() + " " + "/root", ShellUtil.LINUX);
+            System.out.println("克隆信息：" + gitcloneMsg);
+        }
+
+
+        ShellUtil.exceScript("rm -rf " + commonConfig.getNginxpath() + "*", ShellUtil.LINUX);
+
+
+        String gitMsg = ShellUtil.exceScript("git pull " + commonConfig.getGitpath() + "  master ", ShellUtil.LINUX);
+
+        System.out.println("git 输出信息：" + gitMsg);
+
+
+        //Thread.sleep(10000);
+
+
+        this.copyCSSResource();
+
+        this.generateIndex();
+        this.copyImage();
+
+        File file = new File(commonConfig.getGitpath());
+        File[] listFiles = file.listFiles();
+        for (File file1 : listFiles) {
+            if (file1.isFile()) {
+
+                if (file1.getName().endsWith(".md") && !file1.getName().equals("README.md")) {
+                    System.out.println(file1.getName());
+                    this.generateHtml(file1);
+                }
+            }
         }
     }
 }

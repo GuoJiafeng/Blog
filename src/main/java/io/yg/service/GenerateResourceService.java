@@ -15,4 +15,6 @@ public interface GenerateResourceService {
     void copyCSSResource();
 
     void copyImage();
+
+    void execGenerate();
 }
