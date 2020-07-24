@@ -153,7 +153,7 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
                 tmp += tmp01 + "/" + article.getName().split("\\.")[0] + ".html" + tmp02 + article.getName().split("\\.")[0] + tmp03;
 
-                System.out.println(article.getName());
+               // System.out.println(article.getName());
 
             }
 
