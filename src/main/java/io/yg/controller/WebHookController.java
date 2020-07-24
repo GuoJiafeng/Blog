@@ -45,10 +45,12 @@ public class WebHookController {
         ShellUtil.exceScript("rm -rf " + commonConfig.getNginxpath() + "*", ShellUtil.LINUX);
 
 
-        ShellUtil.exceScript("git pull " + commonConfig.getGitpath() + "  master ", ShellUtil.LINUX);
+        String gitMsg = ShellUtil.exceScript("git pull " + commonConfig.getGitpath() + "  master ", ShellUtil.LINUX);
+
+        System.out.println("git 输出信息："+gitMsg);
 
 
-        Thread.sleep(10000);
+        //Thread.sleep(10000);
 
 
         generateResourceService.copyCSSResource();
