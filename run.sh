@@ -10,9 +10,7 @@ echo "#################################"
 echo "查看是否需要关闭残留进程"
 
 
-pid=`ps -ef | grep run.sh | grep -v grep | awk '{print $2}'`
-
-kill -9 $pid
+kill -9 $(ps -ef | grep run.sh | grep -v grep | awk '{print $2}')
 
 echo "删除无用文件"
 rm -rf ./*md
