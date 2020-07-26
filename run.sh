@@ -12,10 +12,7 @@ echo "查看是否需要关闭残留进程"
 
 pid=`ps -ef | grep run.sh | grep -v grep | awk '{print $2}'`
 
-if [ -n "$pid" ]
-then
-    kill -9 $pid
-
+kill -9 $pid
 
 echo "删除无用文件"
 rm -rf ./*md
@@ -29,5 +26,3 @@ echo "开始 编译 "
 
 echo "开始运行"
 java -jar ./target/Blog.jar
-
-fi
