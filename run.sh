@@ -22,7 +22,7 @@ rm -rf ./*md
 rm -rf ./push_github.sh
 
 echo "更新 git "
-git pull
+/usr/local/git/bin/git pull
 
 echo "开始 编译 "
 ../apache-maven-3.3.9/bin/mvn clean package
