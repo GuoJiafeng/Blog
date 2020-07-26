@@ -16,7 +16,7 @@ if [ -n "$pid" ]
 then
     echo "确实有残留进程 进程号为 " "$pid"
     kill -9 $pid
-fi
+
 
 echo "删除无用文件"
 rm -rf ./*md
@@ -30,3 +30,5 @@ echo "开始 编译 "
 
 echo "开始运行"
 java -jar ./target/Blog.jar
+
+fi
