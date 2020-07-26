@@ -2,7 +2,7 @@ server:
   port: 80
 spring:
   resources:
-    static-locations: file:~/html/
+    static-locations: file:static/html/
   mvc:
     view:
       prefix: /
@@ -16,8 +16,8 @@ spring:
 
 io:
   gjf:
-    gitpath: ~/Think/
-    nginxpath: ~/html/
+    gitpath: rep/Think
+    nginxpath: static/html/
     giturl: https://github.com/GuoJiafeng/Think.git
 
 
