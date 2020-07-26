@@ -136,9 +136,9 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
             Collections.sort(articles, (article01, article02) -> {
                 if (Integer.valueOf(article01.getName().split("-")[0]) > Integer.valueOf(article02.getName().split("-")[0])) {
-                    return 1;
-                } else {
                     return -1;
+                } else {
+                    return 1;
                 }
             });
             for (Article article : articles) {
