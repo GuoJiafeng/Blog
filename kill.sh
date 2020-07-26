@@ -9,8 +9,8 @@ ishave=`ps -ef | grep run.sh | grep -v "grep" |wc -l`
 echo $pid
 
 if [ $ishave -le 0 ];
-echo "有"
     then
+    echo "有"
     for id in $pid
 do
     kill -9 $id
