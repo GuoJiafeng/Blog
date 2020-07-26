@@ -134,14 +134,11 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
             String tmp = "";
 
-            Collections.sort(articles, new Comparator<Article>() {
-                @Override
-                public int compare(Article article01, Article article02) {
-                    if (article01.getTime() > article02.getTime()) {
-                        return 1;
-                    } else {
-                        return -1;
-                    }
+            Collections.sort(articles, (article01, article02) -> {
+                if (Integer.valueOf(article01.getName().split("-")[0]) > Integer.valueOf(article02.getName().split("-")[0])) {
+                    return 1;
+                } else {
+                    return -1;
                 }
             });
             for (Article article : articles) {
