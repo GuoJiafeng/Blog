@@ -1,11 +1,13 @@
 package io.yg.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/v1")
+
+@Controller
 public class IndexController {
-
-    public void index(){}
+    @RequestMapping("/")
+    public String index() {
+        return "redirect:/index.html";
+    }
 }
