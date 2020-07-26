@@ -9,7 +9,7 @@ echo "#################################"
 
 echo "查看是否需要关闭残留进程"
 
-pid = ps -ef | grep run | grep -v grep | awk '{print $2}'
+pid = `ps -ef | grep run | grep -v grep | awk '{print $2}'`
 
 if [ -n "$pid" ]
 then
