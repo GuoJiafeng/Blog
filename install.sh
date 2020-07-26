@@ -17,7 +17,7 @@ yum remove git*
 
 echo "下载新版git 2.3.0 wget -c "https://github.com/git/git/archive/v2.3.0.tar,gz" -O git.tar.gz"
 
-wget -c "https://github.com/git/git/archive/v2.3.0.tar,gz" -O git.tar.gz
+wget -c "https://github.com/git/git/archive/v2.3.0.tar.gz" -O git.tar.gz
 
 
 echo "解压 git 2.3.0 tar -zxvf git-2.3.0.gz"
