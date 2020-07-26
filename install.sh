@@ -21,7 +21,7 @@ wget -c "https://github.com/git/git/archive/v2.3.0.tar.gz" -O git.tar.gz
 
 
 echo "解压 git 2.3.0 tar -zxvf git-2.3.0.gz"
-tar -zxvf git-2.3.0.gz
+tar -zxvf git-2.3.0.tar.gz
 
 echo "进入 git 2.3.0 目录 cd git-2.3.0"
 cd git-2.3.0
