@@ -3,10 +3,13 @@ server:
   servlet:
     context-path: /Blog
 spring:
+  resources:
+    static-locations: file:./html
   mvc:
     view:
       prefix: /
       suffix: .html
+    static-path-pattern: /**
   http:
     encoding:
       charset: UTF-8
