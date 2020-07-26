@@ -6,11 +6,7 @@ echo "##   @info   安装 Blog          ##"
 echo "##			                  ##"
 echo "#################################"
 
-echo "下载仓库 git clone https://github.com/GuoJiafeng/Blog.git"
-git clone https://github.com/GuoJiafeng/Blog.git
 
-echo "进入仓库目录 cd Blog"
-cd Blog
 
 echo "更新yum yum update"
 yum update
@@ -42,6 +38,12 @@ echo "打印git 版本 /usr/local/git/bin/git --version"
 echo "退出当前目录 cd .."
 cd ..
 
+
+echo "下载仓库 git clone https://github.com/GuoJiafeng/Blog.git"
+git clone https://github.com/GuoJiafeng/Blog.git
+
+echo "进入仓库目录 cd Blog"
+cd Blog
 
 echo "开始运行"
 
