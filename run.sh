@@ -14,7 +14,7 @@ pid=`ps -ef | grep run.sh | grep -v grep | awk '{print $2}'`
 
 if [ -n "$pid" ]
 then
-    echo"确实有残留进程 进程号为 " $pid
+    echo "确实有残留进程 进程号为 " "$pid"
     kill -9 $pid
 fi
 
