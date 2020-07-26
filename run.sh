@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo "#################################"
+echo "##   @author guojiafeng        ##"
+echo "##   @info   运行 Blog          ##"
+echo "##                             ##"
+echo "#################################"
+
+
 echo "查看是否需要关闭残留进程"
 pid = ps -ef | grep run.sh | grep -v grep | awk '{print $2}'
 if [-n "$pid"]
