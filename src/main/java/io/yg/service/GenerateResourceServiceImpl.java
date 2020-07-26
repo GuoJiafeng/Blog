@@ -274,8 +274,9 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
         ShellUtil.exceScript("rm -rf " + commonConfig.getNginxpath() + "*", ShellUtil.LINUX);
 
+        String currentPath = ShellUtil.exceScript("pwd", ShellUtil.LINUX);
 
-        String gitMsg = ShellUtil.exceScript("git pull " + commonConfig.getGitpath() + "  master ", ShellUtil.LINUX);
+        String gitMsg = ShellUtil.exceScript("git pull " + currentPath + "/" + commonConfig.getGitpath() + "  master ", ShellUtil.LINUX);
 
         System.out.println("git 输出信息：" + gitMsg);
 

@@ -36,7 +36,6 @@ public class WebHookController {
 
         System.out.println("目前收到了" + webHookRequest.toString());
 
-        System.out.println("当前目录为："+ShellUtil.exceScript("pwd", ShellUtil.LINUX));
         System.out.println("打印的消息为："+ShellUtil.exceScript("echo ~/html/", ShellUtil.LINUX));
 
         generateResourceService.execGenerate();
