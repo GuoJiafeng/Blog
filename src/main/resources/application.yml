@@ -1,10 +1,8 @@
 server:
-  port: 1211
-  servlet:
-    context-path: /Blog
+  port: 80
 spring:
   resources:
-    static-locations: file:./html
+    static-locations: file:~/html/
   mvc:
     view:
       prefix: /
@@ -19,7 +17,7 @@ spring:
 io:
   gjf:
     gitpath: ~/Think/
-    nginxpath: /usr/share/nginx/html/
+    nginxpath: ~/html/
     giturl: https://github.com/GuoJiafeng/Think.git
 
 

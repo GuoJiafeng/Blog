@@ -256,6 +256,15 @@ public class GenerateResourceServiceImpl implements GenerateResourceService {
 
     @Override
     public void execGenerate() {
+
+
+        File nginxDir = new File(commonConfig.getNginxpath());
+        if (!nginxDir.exists()) {
+            System.out.println("没有找到 html 路径");
+
+            nginxDir.mkdirs();
+        }
+
         File gitDir = new File(commonConfig.getGitpath());
 
         if (!gitDir.exists()) {

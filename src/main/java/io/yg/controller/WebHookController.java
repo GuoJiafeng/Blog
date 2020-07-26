@@ -1,12 +1,10 @@
 package io.yg.controller;
 
-import io.yg.config.CommonConfig;
+
 import io.yg.generate.entity.WebHookRequest;
 import io.yg.service.GenerateResourceService;
-import io.yg.util.ShellUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.util.List;
-import java.util.Map;
+
 
 /**
  * @author v_guojiafeng
