@@ -5,7 +5,7 @@
 #################################
 
 pid=`ps -ef | grep run.sh | grep -v "grep" | awk '{print $2}'`
-ishave=`ps -ef | grep run.sh | grep -v "grep" |wc -l`
+ishave=`ps -ef | grep Blog.jar | grep -v "grep" |wc -l`
 
 if [ $ishave -le 0 ];then
     echo "没有残留进程"
