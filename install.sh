@@ -39,8 +39,25 @@ echo "退出当前目录 cd .."
 cd ..
 
 
+
+
+echo "yum安装 java "
+
+yum remove  java*
+
+yum -y install java-1.8.0-openjdk-devel.x86_64
+
+echo "安装下载 maven "
+wget -c "http://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz" -O maven.tar.gz
+
+echo "解压 maven tar -zxvf maven.tar.gz "
+tar -zxvf maven.tar.gz
+
+
+
+
 echo "下载仓库 git clone https://github.com/GuoJiafeng/Blog.git"
-git clone https://github.com/GuoJiafeng/Blog.git
+/usr/local/git/bin/git clone https://github.com/GuoJiafeng/Blog.git
 
 echo "进入仓库目录 cd Blog"
 cd Blog
