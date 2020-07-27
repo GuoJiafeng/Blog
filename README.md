@@ -24,6 +24,14 @@ bash <(curl -s -k -L https://raw.githubusercontent.com/GuoJiafeng/Blog/v1/run.sh
 cd ./Blog
 
 sh run.sh
+
+后台运行
+
+nohup sh run.sh > blog.log 2>&1 &
+
+查看日志
+
+tail -f blog.log
 ~~~
 
 + 说明
