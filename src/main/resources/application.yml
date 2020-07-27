@@ -16,7 +16,7 @@ spring:
 
 io:
   gjf:
-    gitpath: rep/
+    gitpath: Think/
     nginxpath: html/
     giturl: https://github.com/GuoJiafeng/Think.git
 
