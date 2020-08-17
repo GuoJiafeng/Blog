@@ -3,17 +3,6 @@ server:
 spring:
   resources:
     static-locations: file:html/
-  mvc:
-    view:
-      prefix: /
-      suffix: .html
-    static-path-pattern: /**
-  http:
-    encoding:
-      charset: UTF-8
-      force: true
-
-
 io:
   gjf:
     gitpath: Think
