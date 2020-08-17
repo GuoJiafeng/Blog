@@ -34,5 +34,5 @@ echo "git commit -m $msg"
 git commit -m "$msg"
 
 echo "git push -u origin v1"
-git push -u origin v1
+git push -u origin nettyversion
 
