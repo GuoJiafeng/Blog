@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8
 # 作者
 MAINTAINER gjf <iamgjf@qq.com>
 # VOLUME 指定了临时文件目录为/tmp。
