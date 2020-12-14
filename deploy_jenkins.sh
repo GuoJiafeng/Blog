@@ -1,6 +1,6 @@
 ## mvn编译
 
-export  PATH=/root/apache-maven-3.6.3/bin:$PATH
+export  PATH=/root/jdk1.8.0_271/bin:/root/apache-maven-3.6.3/bin:$PATH
 
 mvn clean package
 
