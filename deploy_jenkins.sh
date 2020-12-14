@@ -1,5 +1,5 @@
 ## mvn编译
-
+export JAVA_HOME=/root/jdk1.8.0_271/
 export  PATH=/root/jdk1.8.0_271/bin:/root/apache-maven-3.6.3/bin:$PATH
 
 mvn clean package
