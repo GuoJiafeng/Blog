@@ -9,6 +9,8 @@ ADD ./target/*.jar app.jar
 ADD opentracing-specialagent-1.7.1.jar agent.jar
 # 运行jar包
 RUN bash -c 'touch /app.jar'
+RUN bash -c 'touch /agent.jar'
+
 ENTRYPOINT ["java -javaagent:agent.jar \
              -Dsa.exporter=jaeger \
              -Dsa.instrumentation.plugin.*.disable \
