@@ -11,7 +11,7 @@ ADD opentracing-specialagent-1.7.1.jar agent.jar
 RUN bash -c 'touch /app.jar'
 RUN bash -c 'touch /agent.jar'
 
-ENTRYPOINT [" java -javaagent:/opentracing-specialagent-1.7.1.jar \
+ENTRYPOINT [" java -javaagent:/agent.jar \
              -Dsa.exporter=jaeger \
              -Dsa.instrumentation.plugin.*.disable \
              -Dsa.instrumentation.plugin.servlet.enable=true \
