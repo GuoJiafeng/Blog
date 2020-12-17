@@ -1,5 +1,5 @@
 ## mvn编译
-export JAVA_HOME=/root/jdk1.8.0_271/
+export JAVA_HOME=/var/jenkins_home/jdk1.8.0_271
 
 export PATH=/var/jenkins_home/jdk1.8.0_271/bin:/var/jenkins_home/apache-maven-3.6.3/bin:$PATH
 
