@@ -6,9 +6,9 @@ MAINTAINER gjf <iamgjf@qq.com>
 VOLUME /tmp
 # 将jar包添加到容器中并更名为app.jar
 ADD ./target/*.jar app.jar
-ADD opentracing-specialagent-1.7.1.jar agent.jar
+
 # 运行jar包
 RUN bash -c 'touch /app.jar'
-RUN bash -c 'touch /agent.jar'
+
 
 ENTRYPOINT ["java", " -jar ", " /app.jar"]
