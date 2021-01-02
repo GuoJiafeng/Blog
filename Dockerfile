@@ -7,8 +7,11 @@ VOLUME /tmp
 # 将jar包添加到容器中并更名为app.jar
 ADD ./target/*.jar app.jar
 
+ADD /var/jenkins_home/opentracing-specialagent-1.7.3.jar agent.jar
+
 # 运行jar包
 RUN bash -c 'touch /app.jar'
+RUN bash -c 'touch /agent.jar'
 
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-javaagent:/agent.jar","-Dsa.init.defer=false","-Dsa.exporter=jaeger","-Dsa.instrumentation.plugin.*.disable","-Dsa.httpHeaderTags1=processId=processId,taskId=taskId","-Dsa.log.level=INFO","-jar","/app.jar"]
