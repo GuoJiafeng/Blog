@@ -8,9 +8,9 @@ mvn clean package
 wget -O opentracing-specialagent-1.7.3.jar "https://repo1.maven.org/maven2/io/opentracing/contrib/specialagent/opentracing-specialagent/1.7.3/opentracing-specialagent-1.7.3.jar"
 
 # 创建新镜像
-docker build -t thisisgjf/blog . && \
+docker build -t 10.104.113.97:5000/thisisgjf/blog . && \
 
-docker push thisisgjf/blog
+docker push 10.104.113.97:5000/thisisgjf/blog
 
 kubectl delete svc  blog
 

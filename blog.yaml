@@ -28,7 +28,7 @@ spec:
         app: blog
     spec:
       containers:
-        - image: thisisgjf/blog
+        - image: 10.104.113.97:5000/thisisgjf/blog
           name: blog
           ports:
             - containerPort: 80
