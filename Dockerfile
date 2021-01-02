@@ -7,7 +7,7 @@ VOLUME /tmp
 # 将jar包添加到容器中并更名为app.jar
 ADD ./target/*.jar app.jar
 
-ADD /var/jenkins_home/opentracing-specialagent-1.7.3.jar agent.jar
+ADD opentracing-specialagent-1.7.3.jar agent.jar
 
 # 运行jar包
 RUN bash -c 'touch /app.jar'
